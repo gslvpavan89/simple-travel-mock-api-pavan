@@ -14,7 +14,7 @@ The mock resources are protected and require authentication through OAuth 2 to g
 - client-id: travel-api-client
 - secret: psw
  
-The OAuth2 flow required to retrieve a token is 'client_credentials'.
+The OAuth2 grant type required to retrieve a token is **'client_credentials'**.
  
 The OAuth2 token endpoint after startup is:
  
