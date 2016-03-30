@@ -22,7 +22,22 @@ The OAuth2 token endpoint after startup is:
  
 Resource endpoints:
 -------------------
+Retrieve a list of airports:
+`http://localhost:8080/airports`
+possible query params:
+- size: the size of the result
+- page: the page to be selected in the paged response
+- lang: the language, supported ones are nl and en
 
+Retrieve a specific airport:
+`http://localhost:8080/airports/{code}`
+possible query params:
+- lang: the language, supported ones are nl and en
+
+Retrieve a fare offer:
+`http://localhost:8080/fares/{origin_code}/{destination_code}`
+possible query params:
+- currency: the requested resulting currency, supported ones are EUR and USD
  
  Tasks:
 -------
