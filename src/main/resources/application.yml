@@ -1,5 +1,3 @@
-management:
-  context_path: /travel
 security:
   user:
     password: password

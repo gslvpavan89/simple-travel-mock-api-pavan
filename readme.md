@@ -32,6 +32,7 @@ Query params:
 - size: the size of the result
 - page: the page to be selected in the paged response
 - lang: the language, supported ones are nl and en
+- term: A search term that searches through code, name and description.
 
 **Retrieve a specific airport**:
 
@@ -40,7 +41,6 @@ Query params:
 Query params:
 
 - lang: the language, supported ones are **nl** and **en**
-
 
 **Retrieve a fare offer**:
 

@@ -47,7 +47,8 @@ public class MockedAirportRepository implements AirportRepository {
     @Override
     public Optional<Collection<Location>> find(Locale locale, String term) {
         Predicate<Location> filter = l -> l.getCode().toLowerCase().contains(term.toLowerCase())
-                || l.getName().toLowerCase().contains(term.toLowerCase());
+                || l.getName().toLowerCase().contains(term.toLowerCase())
+                || l.getDescription().toLowerCase().contains(term.toLowerCase());
         Collection<Location> results = locale.getLanguage().equals("nl") ?
                 nlAirports.values().parallelStream().filter(filter).collect(toList()) :
                 enAirports.values().parallelStream().filter(filter).collect(toList());

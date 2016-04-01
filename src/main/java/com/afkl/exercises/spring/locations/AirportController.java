@@ -45,4 +45,14 @@ public class AirportController {
                     .orElse(new ResponseEntity<>(NOT_FOUND));
         };
     }
+
+    @RequestMapping(method = GET, params = "term")
+    public Callable<HttpEntity<PagedResources<Resource<Location>>>> find(@RequestParam(value = "lang", defaultValue = "en") String lang,
+                                                                         @RequestParam("term") String term,
+                                                                         Pageable<Location> pageable){
+        return () -> repository.find(Locale.forLanguageTag(lang), term)
+                .map(l -> new ResponseEntity<>(pageable.partition(l), OK))
+                .orElse(new ResponseEntity<>(NOT_FOUND));
+    }
+
 }
