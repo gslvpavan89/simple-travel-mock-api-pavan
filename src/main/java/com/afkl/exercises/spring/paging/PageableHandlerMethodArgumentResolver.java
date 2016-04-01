@@ -17,11 +17,12 @@ public class PageableHandlerMethodArgumentResolver implements HandlerMethodArgum
 
     @Override
     public Object resolveArgument(MethodParameter methodParameter,
-                                  ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest,
+                                  ModelAndViewContainer modelAndViewContainer,
+                                  NativeWebRequest nativeWebRequest,
                                   WebDataBinderFactory webDataBinderFactory) throws Exception {
-        int page = Optional.ofNullable(nativeWebRequest.getParameter("page"))
+        final int page = Optional.ofNullable(nativeWebRequest.getParameter("page"))
                 .map(p -> Math.abs(Integer.parseInt(p))).orElse(1);
-        int size = Optional.ofNullable(nativeWebRequest.getParameter("size"))
+        final int size = Optional.ofNullable(nativeWebRequest.getParameter("size"))
                 .map(s -> Math.abs(Integer.parseInt(s))).orElse(25);
         return new Pageable(page, size);
     }

@@ -39,14 +39,18 @@ public class MockedAirportRepository implements AirportRepository {
 
     @Override
     public Optional<Location> get(Locale locale, String key) {
-        return locale.getLanguage().equals("nl") ? Optional.ofNullable(nlAirports.get(key.toUpperCase())) : Optional.ofNullable(enAirports.get(key.toUpperCase()));
+        return locale.getLanguage().equals("nl") ?
+                Optional.ofNullable(nlAirports.get(key.toUpperCase())) :
+                Optional.ofNullable(enAirports.get(key.toUpperCase()));
     }
 
     @Override
     public Optional<Collection<Location>> find(Locale locale, String term) {
         Predicate<Location> filter = l -> l.getCode().toLowerCase().contains(term.toLowerCase())
                 || l.getName().toLowerCase().contains(term.toLowerCase());
-        Collection<Location> results = locale.getLanguage().equals("nl") ? nlAirports.values().parallelStream().filter(filter).collect(toList()) : enAirports.values().parallelStream().filter(filter).collect(toList());
+        Collection<Location> results = locale.getLanguage().equals("nl") ?
+                nlAirports.values().parallelStream().filter(filter).collect(toList()) :
+                enAirports.values().parallelStream().filter(filter).collect(toList());
         return Optional.ofNullable(results);
     }
 
@@ -58,7 +62,8 @@ public class MockedAirportRepository implements AirportRepository {
     private Map<String, Location> parseMockData(String lang) {
         try {
             log.info("Loading static resources from classpath and populating mocks.");
-            final List<Location> locations = mapper.readValue(new ClassPathResource("locations_".concat(lang).concat(".json")).getInputStream(),
+            final List<Location> locations = mapper.readValue(
+                    new ClassPathResource("locations_".concat(lang).concat(".json")).getInputStream(),
                     mapper.getTypeFactory().constructCollectionType(ArrayList.class, Location.class));
             return locations.parallelStream()
                     .map(l -> new SimpleEntry<>(l.getCode(), l))

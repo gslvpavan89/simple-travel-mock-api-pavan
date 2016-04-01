@@ -38,7 +38,6 @@ public class AirportController {
 
     @RequestMapping(value = "/{key}", method = GET)
     public Callable<HttpEntity<Location>> show(@RequestParam(value = "lang", defaultValue = "en") String lang, @PathVariable("key") String key) {
-
         return () -> {
             Thread.sleep(ThreadLocalRandom.current().nextLong(200, 800));
             return repository.get(Locale.forLanguageTag(lang), key)
