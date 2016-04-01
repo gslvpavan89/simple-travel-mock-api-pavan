@@ -1,5 +1,7 @@
-Instructions
-============
+Travel API mock 
+===============
+
+[![Build Status](https://drone.io/bitbucket.org/afklmdevnet/simple-travel-api-mock/status.png)](https://drone.io/bitbucket.org/afklmdevnet/simple-travel-api-mock/latest)
 
 Clone this repo and start the mock (on windows systems use the gradlew.bat file):
 
