@@ -9,6 +9,7 @@
  
  Please check the file travel-api.docx to see the final artifact screenshots.
  
+ Standalone ui project is available in below github page
  
  https://github.com/gslvpavan89/travel-app
  
