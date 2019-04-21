@@ -1,6 +1,16 @@
 security:
   user:
     password: password
+management:
+  port: 8080
+  address: 127.0.0.1
+  trace:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include:  httptrace
 
 debug: true
 

@@ -1,5 +1,6 @@
 package com.afkl.exercises.spring.locations;
 
+import com.afkl.exercises.spring.common.ExceptionController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class MockedAirportRepository implements AirportRepository {
     private final Map<String, Location> nlAirports;
     private final Map<String, Location> enAirports;
     private final ObjectMapper mapper;
+    
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(MockedAirportRepository.class);
+
 
     @Autowired
     public MockedAirportRepository(ObjectMapper mapper) {

@@ -14,6 +14,9 @@ import static org.springframework.http.HttpStatus.SERVICE_UNAVAILABLE;
 @Slf4j
 @ControllerAdvice
 public class ExceptionController {
+	
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(ExceptionController.class);
+
 
     @ExceptionHandler(Throwable.class)
     public HttpEntity handleGlobalException(Throwable t) {
